@@ -4,8 +4,8 @@
       "intent": "GetFirstEventIntent",
       "slots": [
         {
-          "name": "day",
-          "type": "AMAZON.DATE"
+          "name": "input",
+          "type": "AMAZON.LITERAL"
         }
       ]
     },
