@@ -64,10 +64,6 @@ RepeatThisSkill.prototype.intentHandlers = {
         handleFirstEventRequest(intent, session, response);
     },
 
-    // "GetNextEventIntent": function (intent, session, response) {
-    //     handleNextEventRequest(intent, session, response);
-    // },
-
     "AMAZON.HelpIntent": function (intent, session, response) {
         var speechText = "Repeat This repeats a short phrase you specify.  " +
             "For example, you could say the meaning of life is 42 and I would say the meaning of life is 42. " + 
@@ -93,6 +89,14 @@ RepeatThisSkill.prototype.intentHandlers = {
     },
 
     "AMAZON.CancelIntent": function (intent, session, response) {
+        var speechOutput = {
+                speech: "Goodbye",
+                type: AlexaSkill.speechOutputType.PLAIN_TEXT
+        };
+        response.tell(speechOutput);
+    },
+
+    "AMAZON.PauseIntent": function (intent, session, response) {
         var speechOutput = {
                 speech: "Goodbye",
                 type: AlexaSkill.speechOutputType.PLAIN_TEXT
@@ -153,48 +157,6 @@ function handleFirstEventRequest(intent, session, response) {
     response.tell(speechText);
     response.askWithCard(speechOutput, repromptOutput, cardTitle, cardContent);
 }
-
-/**
- * Gets a poster prepares the speech to reply to the user.
- */
-// function handleNextEventRequest(intent, session, response) {
-//     var cardTitle = "More events on this day in history",
-//         sessionAttributes = session.attributes,
-//         result = sessionAttributes.text,
-//         speechText = "",
-//         cardContent = "",
-//         repromptText = "Do you want to know more about what happened on this date?",
-//         i;
-//     if (!result) {
-//         speechText = "With History Buff, you can get historical events for any day of the year. For example, you could say today, or August thirtieth. Now, which day do you want?";
-//         cardContent = speechText;
-//     } else if (sessionAttributes.index >= result.length) {
-//         speechText = "There are no more events for this date. Try another date by saying <break time = \"0.3s\"/> get events for august thirtieth.";
-//         cardContent = "There are no more events for this date. Try another date by saying, get events for august thirtieth.";
-//     } else {
-//         for (i = 0; i < paginationSize; i++) {
-//             if (sessionAttributes.index>= result.length) {
-//                 break;
-//             }
-//             speechText = speechText + "<p>" + result[sessionAttributes.index] + "</p> ";
-//             cardContent = cardContent + result[sessionAttributes.index] + " ";
-//             sessionAttributes.index++;
-//         }
-//         if (sessionAttributes.index < result.length) {
-//             speechText = speechText + " Wanna go deeper in history?";
-//             cardContent = cardContent + " Wanna go deeper in history?";
-//         }
-//     }
-//     var speechOutput = {
-//         speech: "<speak>" + speechText + "</speak>",
-//         type: AlexaSkill.speechOutputType.SSML
-//     };
-//     var repromptOutput = {
-//         speech: repromptText,
-//         type: AlexaSkill.speechOutputType.PLAIN_TEXT
-//     };
-//     response.askWithCard(speechOutput, repromptOutput, cardTitle, cardContent);
-// }
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
