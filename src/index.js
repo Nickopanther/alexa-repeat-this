@@ -1,5 +1,5 @@
 /**
-    Copyright 2014-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+    Copyright 2016 Greg Yeutter. Code is modified from example code provided by Amazon.com, Inc.
 
     Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
 
@@ -10,6 +10,10 @@
 
 /**
  * This skill has Alexa repeat a short phrase given by the user
+ * 
+ * For example:
+ * User: Alexa, ask repeat this to repeat 'the meaning of life'
+ * Alexa: 'the meaning of life'
  */
 
 
@@ -27,9 +31,6 @@ var AlexaSkill = require('./AlexaSkill');
 
 /**
  * RepeatThisSkill is a child of AlexaSkill.
- * To read more about inheritance in JavaScript, see the link below.
- *
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
  */
 var RepeatThisSkill = function() {
     AlexaSkill.call(this, APP_ID);
@@ -108,7 +109,6 @@ RepeatThisSkill.prototype.intentHandlers = {
 /**
  * Function to handle the onLaunch skill behavior
  */
-
 function getWelcomeResponse(response) {
     // If we wanted to initialize the session to have some attributes we could add those here.
     var cardTitle = "Repeat This";
@@ -164,4 +164,3 @@ exports.handler = function (event, context) {
     var skill = new RepeatThisSkill();
     skill.execute(event, context);
 };
-
