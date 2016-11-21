@@ -1,16 +1,13 @@
 {
   "intents": [
     {
-      "intent": "GetFirstEventIntent",
+      "intent": "RepeatIntent",
       "slots": [
         {
           "name": "input",
           "type": "AMAZON.LITERAL"
         }
       ]
-    },
-    {
-      "intent": "GetNextEventIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"
