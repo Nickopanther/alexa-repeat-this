@@ -60,13 +60,13 @@ RepeatThisSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedR
 
 RepeatThisSkill.prototype.intentHandlers = {
 
-    "GetFirstEventIntent": function (intent, session, response) {
+    "RepeatIntent": function (intent, session, response) {
         handleFirstEventRequest(intent, session, response);
     },
 
-    "GetNextEventIntent": function (intent, session, response) {
-        handleNextEventRequest(intent, session, response);
-    },
+    // "GetNextEventIntent": function (intent, session, response) {
+    //     handleNextEventRequest(intent, session, response);
+    // },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
         var speechText = "Repeat This repeats a short phrase you specify.  " +
@@ -135,7 +135,7 @@ function handleFirstEventRequest(intent, session, response) {
             "For example, you could say the meaning of life is 42 and I would say the meaning of life is 42. " + 
             "Now, what would you like me to repeat?"
 
-    var input = intent.slots.input;
+    var input = intent.slots.input.value;
     
     var sessionAttributes = {};
 
@@ -144,8 +144,8 @@ function handleFirstEventRequest(intent, session, response) {
 
     var cardTitle = "Repeat This";
 
-    sessionAttributes.text = input;
-    session.attributes = sessionAttributes;
+    // sessionAttributes.text = input;
+    // session.attributes = sessionAttributes;
 
     speechText = input;
     cardContent = speechText;
