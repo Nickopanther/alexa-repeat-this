@@ -3,12 +3,12 @@
 Repeat This is a simple skill for [Amazon Alexa](https://developer.amazon.com/alexa) (e.g. Echo) that repeats any phrase spoken by the user. 
 
 For example:
-User: "Alexa, ask Repeat This to repeat 'we are the music makers'"
-Alexa: "We are the music makers"
-User: "Alexa, ask Repeat This 'we are the dreamers of dreams'"
-Alexa: "We are the dreamers of dreams"
-User: "Alexa, ask Repeat This to say 'come along'"
-Alexa: "Come along"
+* User: "Alexa, ask Repeat This to repeat 'we are the music makers'"
+* Alexa: "We are the music makers"
+* User: "Alexa, ask Repeat This 'we are the dreamers of dreams'"
+* Alexa: "We are the dreamers of dreams"
+* User: "Alexa, ask Repeat This to say 'come along'"
+* Alexa: "Come along"
 
 Repeat This demonstrates Alexa's natural language recognition capabilities. The input query is passed as one or more Strings to Alexa's text-to-speech engine. The code could be modified to pass the input query to another web service, giving Alexa superpowers.
 
